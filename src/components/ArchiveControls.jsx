@@ -1,10 +1,9 @@
-// src/components/ArchiveControls.jsx
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useCalls } from '../contexts/CallsContext';
 import { Button, Stack } from '@mui/material';
 import { IoIosArchive } from 'react-icons/io';
-import { GrUndo } from "react-icons/gr";
+import { GrUndo } from 'react-icons/gr';
 import { updateCall } from '../services/api';
 
 const ArchiveControls = () => {
@@ -13,19 +12,25 @@ const ArchiveControls = () => {
   const currentTab = location.pathname === '/archived' ? 'archived' : 'all';
 
   const handleBulkArchive = async (archive) => {
-    try {
-      const callsToUpdate = calls.filter(call =>
-        archive ? !call.is_archived : call.is_archived
-      );
+    const callsToUpdate = calls.filter(call =>
+      archive ? !call.is_archived : call.is_archived
+    );
 
+    const updatedCalls = calls.map(call =>
+      callsToUpdate.includes(call)
+        ? { ...call, is_archived: archive }
+        : call
+    );
+    dispatch({ type: 'BULK_UPDATE_CALLS', payload: updatedCalls });
+
+    try {
       await Promise.all(
         callsToUpdate.map(call =>
-          updateCall(call.id, archive).then(updatedCall =>
-            dispatch({ type: 'UPDATE_CALL', payload: updatedCall })
-          )
+          updateCall(call.id, archive)
         )
       );
     } catch (error) {
+      console.log(error);
     }
   };
 
@@ -40,7 +45,6 @@ const ArchiveControls = () => {
           Archive All
         </Button>
       )}
-
       {currentTab === 'archived' && (
         <Button
           variant="outlined"

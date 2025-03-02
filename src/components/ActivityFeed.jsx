@@ -1,4 +1,3 @@
-// ActivityFeed.jsx
 import React, { useRef } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useCalls } from '../contexts/CallsContext.js';
@@ -23,11 +22,7 @@ const ActivityFeed = () => {
 
   return (
     <Stack spacing={3} p={3}>
-      <Typography variant="h4" gutterBottom>
-        Activity Feed
-      </Typography>
-      
-      <ArchiveControls onArchiveAll={() => { /* handle bulk archive logic */ }} />
+      <ArchiveControls />
       
       {loading ? (
         <LoadingSkeleton />

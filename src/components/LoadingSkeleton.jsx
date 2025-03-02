@@ -1,4 +1,3 @@
-// src/components/LoadingSkeleton.jsx
 import React from 'react';
 import { Skeleton, Stack } from '@mui/material';
 

@@ -17,6 +17,8 @@ const reducer = (state, action) => {
       };
     case 'SET_ERROR':
       return { ...state, error: action.payload, loading: false };
+    case 'BULK_UPDATE_CALLS':
+      return { ...state, calls: action.payload };
     case 'OPTIMISTIC_ARCHIVE':
       return {
         ...state,

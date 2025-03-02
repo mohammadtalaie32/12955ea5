@@ -1,4 +1,3 @@
-// src/components/ArchivedCalls.jsx
 import React, { useRef } from 'react';
 import { useCalls } from '../contexts/CallsContext.js';
 import { Stack, Typography } from '@mui/material';
@@ -21,10 +20,6 @@ const ArchivedCalls = () => {
 
   return (
     <Stack spacing={3} p={3} className='space-y-2'>
-      <Typography variant="h4" gutterBottom>
-        Archived Calls
-      </Typography>
-      
       {loading ? (
         <LoadingSkeleton />
       ) : (

@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from 'react';
 const LayoutContext = createContext();
 
 export const LayoutProvider = ({ children }) => {
-  const [currentPage, setCurrentPage] = useState('Home');
+  const [currentPage, setCurrentPage] = useState('Active Calls');
 
 
   const value = {

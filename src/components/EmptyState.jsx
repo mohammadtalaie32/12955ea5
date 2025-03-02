@@ -1,4 +1,3 @@
-// src/components/EmptyState.jsx
 import React from 'react';
 import { Typography, Stack } from '@mui/material';
 

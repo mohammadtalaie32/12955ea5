@@ -1,4 +1,3 @@
-// src/components/CallDetail.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchCallDetails } from '../services/api';
@@ -39,7 +38,6 @@ const CallDetails = () => {
         <Typography><strong>To:</strong> {call.to}</Typography>
         <Typography><strong>Call Type:</strong> {call.call_type}</Typography>
         <Typography><strong>Date:</strong> {call.created_at}</Typography>
-        {/* Add additional details as needed */}
       </Stack>
     </Card>
   );
